@@ -19,13 +19,13 @@ func firstfloorCap() int {
 	return firstfloorcap
 }
 
-func seconfloorCap() int {
-	seconfloorcap := secondFloor(2, 12)
-	return seconfloorcap
+func secondfloorCap() int {
+	secondfloorcap := secondFloor(2, 12)
+	return secondfloorcap
 }
 
 func total() int {
-	total := firstfloorCap() + seconfloorCap()
+	total := firstfloorCap() + secondfloorCap()
 	return total
 }
 
@@ -37,16 +37,16 @@ func block() int {
 
 func main() {
 
-	if firstfloorCap() > seconfloorCap() {
-		fmt.Println("Tek Kişilik Odalarda Kalan Öğrenci Sayısı Çift Kişilik Odalarda Kalan Öğrenci Sayısından", firstfloorCap()-seconfloorCap(), "Fazladır")
+	if firstfloorCap() > secondfloorCap() {
+		fmt.Println("Tek Kişilik Odalarda Kalan Öğrenci Sayısı Çift Kişilik Odalarda Kalan Öğrenci Sayısından", firstfloorCap()-secondfloorCap(), "Fazladır")
 
 	} else {
-		fmt.Println("Çift Kişilik Odalarda Kalan Öğrenci Sayısı Tek Kişilik Odalarda Kalan Öğrenci Sayısından", seconfloorCap()-firstfloorCap(), "Fazladır")
+		fmt.Println("Çift Kişilik Odalarda Kalan Öğrenci Sayısı Tek Kişilik Odalarda Kalan Öğrenci Sayısından", secondfloorCap()-firstfloorCap(), "Fazladır")
 
 	}
 	fmt.Println("Bir Blokta Bulunan Toplam Öğrenci Sayısı", total())
 	if block() == 1 {
-
+		fmt.Println("Yurtta Bulunan Toplam Öğrenci Sayısı", total())
 	} else {
 		fmt.Println("Yurtta Bulunan Toplam Öğrenci Sayısı", block()*total())
 	}
