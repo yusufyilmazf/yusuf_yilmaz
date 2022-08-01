@@ -5,32 +5,32 @@ package main
 import "fmt"
 
 // Kat 1 Tanımlama
-func firstFloor(single int, totalroom int) int {
+func firstFloor(single int, totalRoom int) int {
 
-	return single * totalroom
+	return single * totalRoom
 }
 
 // Kat 2 Tanımlama
-func secondFloor(double int, totalroom int) int {
+func secondFloor(double int, totalRoom int) int {
 
-	return double * totalroom
+	return double * totalRoom
 }
 
 // Kat 1 Kapasitesini Tanımlama
-func firstfloorCap() int {
-	firstfloorcap := firstFloor(1, 18)
-	return firstfloorcap
+func firstFloorCap() int {
+	firstFloorcap := firstFloor(1, 18)
+	return firstFloorcap
 }
 
 // Kat 2 Kapasitesini Tanımlama
-func secondfloorCap() int {
-	secondfloorcap := secondFloor(2, 12)
-	return secondfloorcap
+func secondFloorCap() int {
+	secondFloorCap := secondFloor(2, 12)
+	return secondFloorCap
 }
 
 // Toplam Kapasiteyi Tanımlama
 func total() int {
-	total := firstfloorCap() + secondfloorCap()
+	total := firstFloorCap() + secondFloorCap()
 	return total
 }
 
@@ -43,15 +43,24 @@ func block() int {
 
 //Hesaplama İşlemleri
 func calc() {
+	
+	diffCap := firstFloorCap() > secondFloorCap()
 
-	if firstfloorCap() > secondfloorCap() {
-		fmt.Println("Tek Kişilik Odalarda Kalan Öğrenci Sayısı Çift Kişilik Odalarda Kalan Öğrenci Sayısından", firstfloorCap()-secondfloorCap(), "Fazladır")
+	if diffCap > 0 {
+		fmt.Println("Tek Kişilik Odalarda Kalan Öğrenci Sayısı Çift Kişilik Odalarda Kalan Öğrenci Sayısından", diffCap, "Fazladır")
 
 	} else {
-		fmt.Println("Çift Kişilik Odalarda Kalan Öğrenci Sayısı Tek Kişilik Odalarda Kalan Öğrenci Sayısından", secondfloorCap()-firstfloorCap(), "Fazladır")
+		fmt.Println("Çift Kişilik Odalarda Kalan Öğrenci Sayısı Tek Kişilik Odalarda Kalan Öğrenci Sayısından", -1 * diffCap, "Fazladır")
 
 	}
+	//TODO 
+	// Öğrenci sayılar eşit ise sonuç ne olacaktır ?
+	
+	
 	fmt.Println("Bir Blokta Bulunan Toplam Öğrenci Sayısı", total())
+	
+	//TODO
+	// Aşağıda tanımlanan if Bloğunun her hangi bir geçerliliği var mı ? 
 	if block() == 1 {
 		fmt.Println("Yurtta Bulunan Toplam Öğrenci Sayısı", total())
 	} else {
