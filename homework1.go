@@ -1,5 +1,4 @@
 // Öğrenci Yurdu Kapasitesi Hesaplama
-
 package main
 
 import "fmt"
@@ -16,16 +15,16 @@ func secondFloor(double int, totalRoom int) int {
 	return double * totalRoom
 }
 
-// Kat 1 Kapasitesini Tanımlama
+// Kat 1 Kapasitesi Tanımlama
 func firstFloorCap() int {
 	firstFloorcap := firstFloor(1, 18)
 	return firstFloorcap
 }
 
-// Kat 2 Kapasitesini Tanımlama
+// Kat 2 Kapasitesi Tanımlama
 func secondFloorCap() int {
-	secondFloorCap := secondFloor(2, 12)
-	return secondFloorCap
+	secondFloorcap := secondFloor(2, 9)
+	return secondFloorcap
 }
 
 // Toplam Kapasiteyi Tanımlama
@@ -34,7 +33,7 @@ func total() int {
 	return total
 }
 
-// Blok Sayısını Tanımlama
+//Yurt Blok Sayısını Tanımlama
 func block() int {
 
 	block := 3
@@ -43,24 +42,25 @@ func block() int {
 
 //Hesaplama İşlemleri
 func calc() {
-	
 	diffCap := firstFloorCap() > secondFloorCap()
-
-	if diffCap > 0 {
-		fmt.Println("Tek Kişilik Odalarda Kalan Öğrenci Sayısı Çift Kişilik Odalarda Kalan Öğrenci Sayısından", diffCap, "Fazladır")
+	diffVar := firstFloorCap() - secondFloorCap()
+	diffNull := firstFloorCap() == secondFloorCap()
+	if diffCap {
+		fmt.Println("Tek Kişilik Odalarda Kalan Öğrenci Sayısı Çift Kişilik Odalarda Kalan Öğrenci Sayısından", diffVar, "Fazladır.")
 
 	} else {
-		fmt.Println("Çift Kişilik Odalarda Kalan Öğrenci Sayısı Tek Kişilik Odalarda Kalan Öğrenci Sayısından", -1 * diffCap, "Fazladır")
+		if diffNull {			 // Öğrenci Sayılarının Eşit Olma Koşulu Eklenmiştir.
 
+			fmt.Println("Tek Kişilik Odalarda Kalan Öğrenci Sayısı Çift Kişilik Odalarda Kalan Öğrenci Sayısına Eşittir.")
+		} else {
+			fmt.Println("Çift Kişilik Odalarda Kalan Öğrenci Sayısı Tek Kişilik Odalarda Kalan Öğrenci Sayısından", -1*diffVar, "Fazladır.")
+		}
 	}
-	//TODO 
-	// Öğrenci sayılar eşit ise sonuç ne olacaktır ?
-	
-	
+
 	fmt.Println("Bir Blokta Bulunan Toplam Öğrenci Sayısı", total())
+
+	//Fonksiyon dışarıdan değer almadığından blok sayısı elle girilip kaç blok var ise tüm yurt kapasitesi hesaplanmaktadır.
 	
-	//TODO
-	// Aşağıda tanımlanan if Bloğunun her hangi bir geçerliliği var mı ? 
 	if block() == 1 {
 		fmt.Println("Yurtta Bulunan Toplam Öğrenci Sayısı", total())
 	} else {
