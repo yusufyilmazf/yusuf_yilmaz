@@ -42,7 +42,7 @@ func block() int {
 }
 
 //Hesaplama İşlemleri
-func main() {
+func calc() {
 
 	if firstfloorCap() > secondfloorCap() {
 		fmt.Println("Tek Kişilik Odalarda Kalan Öğrenci Sayısı Çift Kişilik Odalarda Kalan Öğrenci Sayısından", firstfloorCap()-secondfloorCap(), "Fazladır")
@@ -57,5 +57,9 @@ func main() {
 	} else {
 		fmt.Println("Yurtta Bulunan Toplam Öğrenci Sayısı", block()*total())
 	}
+}
 
+//Hesaplama İşlemlerini Gerçekleştirilen Fonksiyonu Çağırma
+func main() {
+	calc()
 }
