@@ -23,8 +23,8 @@ func firstFloorCap() int {
 
 // Kat 2 Kapasitesi Tanımlama
 func secondFloorCap() int {
-	secondFloorcap := secondFloor(2, 9)
-	return secondFloorcap
+	secondFloorCap := secondFloor(2, 9)
+	return secondFloorCap
 }
 
 // Toplam Kapasiteyi Tanımlama
